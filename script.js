@@ -3,39 +3,43 @@ let winConditions = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 
 
 let boxes = document.querySelectorAll(".box");
 let reset = document.querySelector("#reset");
-let winningText = document.querySelector("#winningText")
 let text = document.querySelector("#text")
 let runGameOver = true;
+let countclicks = 0; // to run game over
 
 //winner check codes
 function checkWinner() {
     for (let i = 0; i < winConditions.length; i++) {
-        
-        let smaple0 = boxes[winConditions[i][0]]
-        let smaple1 = boxes[winConditions[i][1]]
-        let smaple2 = boxes[winConditions[i][2]]
 
-        if (smaple0.innerText != "" && smaple0.innerText == smaple1.innerText && smaple1.innerText == smaple2.innerText) {
-            
+        let sample0 = boxes[winConditions[i][0]]
+        let sample1 = boxes[winConditions[i][1]]
+        let sample2 = boxes[winConditions[i][2]]
+
+        if (sample0.innerText != "" && sample0.innerText == sample1.innerText && sample1.innerText == sample2.innerText) {
+
             //winner print codes
-            text.innerText = `${smaple0.innerText} Won the Match !`;
+            text.innerText = `${sample0.innerText} Won the Match !`;
 
             //change winner text color
-            text.classList.add("class", "winText");
-            
+            text.classList.add("winText");
+
 
             //disable extra boxes after winning.
             boxes.forEach(box => {
-                box.disabled = true ;
+                box.disabled = true;
             });
 
             //change winning box color.
-            smaple0.classList.add("class", "winBox");
-            smaple1.classList.add("class", "winBox");
-            smaple2.classList.add("class", "winBox");
+            sample0.classList.add("winBox");
+            sample1.classList.add("winBox");
+            sample2.classList.add("winBox");
 
-            //disable game over function to run even is all boxes are filled
+            //disable game over function to run even is all boxes are filled after a winner is found
             runGameOver = false;
+
+            // countclicks = 0; // not necessary because the game will be reset anyways after a player wins.
+
+            return;// End the function once a winner is found
         }
     }
 }
@@ -46,25 +50,22 @@ boxes.forEach(valBoxes => {
         if (turn == true) {
             valBoxes.innerText = "X";
             turn = false;
-            valBoxes.disabled = true;
             text.innerText = "O's Turn !";
         }
         else {
             valBoxes.innerText = "O";
             turn = true;
-            valBoxes.disabled = true;
             text.innerText = "X's Turn !";
         }
-        
+        valBoxes.disabled = true;
+        countclicks++;
+
         checkWinner();
 
         //disable game over function to run even is all boxes are filled
-        if (runGameOver == true){
+        if (runGameOver == true && countclicks == 9) {
             gameOver();
         }
-
-
-        
 
     })
 
@@ -77,44 +78,41 @@ reset.addEventListener("click", () => {
     boxes.forEach(box => {
         box.innerText = ""; //clear boxes
         box.disabled = false; //enable all boxes
-        box.classList.remove("class", "winBox"); //reset winning boxes color
-        
+        box.classList.remove("winBox"); //reset winning boxes color
+
     })
 
+    turn = true;
+
     //reset text 
-    if (turn == true){
+    if (turn == true) {
         text.innerText = "X's Turn !"
     }
-    else{
+    else {
         text.innerText = "O's Turn !"
     }
-    
+
     //reset text colors
-    text.classList.remove("class", "winText");
-    text.classList.remove("class", "overText");
-
+    text.classList.remove("winText");
+    text.classList.remove("overText");
 
     
+
+    //reset game over click count
+    runGameOver = true;
+    countclicks = 0;
+    
+
+
+
 })
 
 
 //game over
 function gameOver() {
-    boxes.forEach(box => {
-        if(
-            boxes[0].innerText != "" &&
-            boxes[1].innerText != "" &&
-            boxes[2].innerText != "" &&
-            boxes[3].innerText != "" &&
-            boxes[4].innerText != "" &&
-            boxes[5].innerText != "" &&
-            boxes[6].innerText != "" &&
-            boxes[7].innerText != "" &&
-            boxes[8].innerText != ""
-        ){
-            text.innerText = "Game Over !";
-            text.classList.add("class", "overText");
-        }
-    })
+        console.log("gameover")
+        text.innerText = "Game Over !";
+        text.classList.add("overText");
+        countclicks = 0;
 }
 
