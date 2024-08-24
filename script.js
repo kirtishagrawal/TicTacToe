@@ -102,15 +102,15 @@ reset.addEventListener("click", () => {
 function gameOver() {
     boxes.forEach(box => {
         if(
-            boxes[0].innerText !== "" &&
-            boxes[1].innerText !== "" &&
-            boxes[2].innerText !== "" &&
-            boxes[3].innerText !== "" &&
-            boxes[4].innerText !== "" &&
-            boxes[5].innerText !== "" &&
-            boxes[6].innerText !== "" &&
-            boxes[7].innerText !== "" &&
-            boxes[8].innerText !== ""
+            boxes[0].innerText != "" &&
+            boxes[1].innerText != "" &&
+            boxes[2].innerText != "" &&
+            boxes[3].innerText != "" &&
+            boxes[4].innerText != "" &&
+            boxes[5].innerText != "" &&
+            boxes[6].innerText != "" &&
+            boxes[7].innerText != "" &&
+            boxes[8].innerText != ""
         ){
             text.innerText = "Game Over !";
             text.classList.add("class", "overText");
