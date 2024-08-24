@@ -41,13 +41,13 @@ boxes.forEach(valBoxes => {
             valBoxes.innerText = "X";
             turn = false;
             valBoxes.disabled = true;
-            text.innerText = "O's Turn !";
+            text.innerText = "O's Turn";
         }
         else {
             valBoxes.innerText = "O";
             turn = true;
             valBoxes.disabled = true;
-            text.innerText = "X's Turn !";
+            text.innerText = "X's Turn";
         }
 
         checkWinner();
@@ -68,10 +68,10 @@ reset.addEventListener("click", () => {
 
     //reset text 
     if (turn == true){
-        text.innerText = "X's Turn !"
+        text.innerText = "X's Turn"
     }
     else{
-        text.innerText = "O's Turn !"
+        text.innerText = "O's Turn"
     }
     
 
