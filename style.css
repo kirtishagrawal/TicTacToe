@@ -1,0 +1,133 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    background-image: url("img/background.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
+    height: 100vh;
+
+}
+
+.container{
+    height: 650px;
+    width:515px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 3px solid #50493d;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items:center;
+    background-color: #cabba1e1;
+    box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.636);
+
+}
+
+.game {
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.box {
+    height: 150px;
+    width: 150px;
+    border: none;
+    background-color: #50493d;
+    border-radius: 10px;
+    box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.355);
+    font-size: 120px;
+    color: #d8d0bf;
+    font-family: "Raleway", sans-serif;
+    font-weight: 800;
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.235);
+}
+
+.controls {
+    width: 500px;
+    height: 120px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+
+
+}
+
+#reset {
+    width: 180px;
+    height: 60px;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    background-color: #3b322b;
+    color: #f4f1e8;
+}
+
+p {
+    font-size: 30px;
+    padding: 5px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+.winBox{
+    background-color: green;
+}
+
+
+@media screen and (max-width: 600px) {
+   
+
+    
+    
+    .container{
+        height: 110vw;
+        width:80vw;
+    
+    }
+    
+    .game {
+        width: 70vw;
+        height: 70vw;
+        
+    }
+    
+    .box {
+        height: 20vw;
+        width: 20vw;
+        font-size: 15vw;
+      
+    }
+    
+    .controls {
+        width: 50vw;
+        height: 25vw;
+       
+    
+    }
+    
+    #reset {
+        width: 23vw;
+        height: 8vw;
+        border-radius: 2vw;
+        font-size: 3vw;
+       
+    }
+    
+    p {
+        font-size: 5vw;
+        padding: 1vw;
+        margin-top: 0px;
+        margin-bottom: 4vw;
+    }
+    
+   
+}
