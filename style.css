@@ -4,7 +4,7 @@
 }
 
 body{
-    background-image: url("background.jpg");
+    background-image: url("img/background.jpg");
     background-repeat: no-repeat;
     background-size:cover;
     height: 100vh;
@@ -79,8 +79,17 @@ p {
 }
 
 .winBox{
-    background-color: green;
+    background-color: #4CBB17;
 }
+
+.winText{
+    color: #228B22;
+}
+
+.overText{
+    color: red;
+}
+
 
 
 @media screen and (max-width: 600px) {
